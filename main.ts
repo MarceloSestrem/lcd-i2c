@@ -1,4 +1,4 @@
-//% color=#1E90FF icon="\uf108" block="LCD 16x02 I2C"
+//% color=#1E90FF icon="\uf108" block="LCD 16x02 2C"
 namespace lcd16x02 {
     let i2cAddr = 0x27 // Endereço padrão da maioria dos módulos I2C
     let BK = 0x08
