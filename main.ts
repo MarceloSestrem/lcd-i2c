@@ -58,4 +58,29 @@ namespace lcd16x02 {
         BK = 0x08
         write(0, 0)
     }
+    //% block="rolar display para a esquerda"
+    export function scrollLeft(): void {
+        write(0x18, 0)
+    }
+
+    //% block="rolar display para a direita"
+    export function scrollRight(): void {
+        write(0x1C, 0)
+    }
+
+    //% block="exibir mensagem longa %texto na linha %linha com velocidade %velocidade ms"
+    export function scrollText(texto: string, linha: number, velocidade: number): void {
+        // Exibe o texto completo
+        lcd16x02.showString(texto, linha, 0)
+
+        // Se o texto for maior que 16, rola o restante
+        if (texto.length > 16) {
+            for (let i = 0; i < (texto.length - 16); i++) {
+                basic.pause(velocidade)
+                lcd16x02.scrollLeft()
+            }
+            basic.pause(velocidade * 2) // Pausa no final
+            lcd16x02.clear() // Limpa para resetar a posição do cursor
+        }
+    }
 }
