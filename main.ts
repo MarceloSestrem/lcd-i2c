@@ -70,9 +70,9 @@ namespace lcd16x02 {
     }
 
     //% block="exibir mensagem longa %texto na linha %linha com velocidade %velocidade ms"
-    export function scrollText(texto: string, linha: number, velocidade: number): void {
+    export function scrollText(texto: string, l: number, velocidade: number): void {
         // Exibe o texto completo
-        lcd16x02.showString(texto, linha, 0)
+        lcd16x02.showString(texto, l, 0)
 
         // Se o texto for maior que 16, rola o restante
         if (texto.length > 16) {
