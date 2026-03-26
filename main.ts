@@ -21,6 +21,7 @@ namespace lcd16x02 {
     }
 
     //% block="inicializar LCD no endereço %addr"
+    //% addr.defl=39
     export function init(addr: number): void {
         i2cAddr = addr
         basic.pause(50)
